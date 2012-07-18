@@ -12,7 +12,7 @@ namespace SourceCode.Examples.MessageBus.FSW
     {
         private string _filePath;
         private FileStream _fileStream;
-        private IMessage _sourceMessage;
+        private IMessage _sourceMessage = null;
         
 
         public FSWView(string filePath, IMessage sourceMessage)

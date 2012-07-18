@@ -36,7 +36,7 @@ namespace SourceCode.Examples.MessageBus.FSW
              */
 
             FileSystemWatcher fsw = new FileSystemWatcher();
-            fsw.Path = string.Concat(con.ConnectionString, "\\In");
+            fsw.Path = string.Concat(con.ConnectionString, "\\in"); // Monitor the "IN" folder of the given connectionstring.
             fsw.Created += new FileSystemEventHandler(fileWatcher_Created);
             fsw.EnableRaisingEvents = true;
 
@@ -89,8 +89,6 @@ namespace SourceCode.Examples.MessageBus.FSW
         {
             string path = _connectionInfo[0].ConnectionString;
             string filename = string.Format(@"{0}\out\Send_{1}.txt", path, title);
-
-
 
             using (StreamWriter writer = new StreamWriter(filename))
             {

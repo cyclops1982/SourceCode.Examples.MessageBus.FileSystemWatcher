@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using SourceCode.MessageBus;
 using System.IO;
+using System.Security.AccessControl;
+using System.Security.Principal;
 
 namespace SourceCode.Examples.MessageBus.FSW
 {
     public class FSWMessage : IMessage
     {
         private string _fileName;
-        private string _filePath; 
+        private string _filePath;
 
 
 
@@ -19,7 +21,7 @@ namespace SourceCode.Examples.MessageBus.FSW
             _fileName = fileEvent.Name;
             _filePath = fileEvent.FullPath;
         }
-
+        /*
         private string ReadFileContent(string filePath)
         {
             String content;
@@ -28,7 +30,7 @@ namespace SourceCode.Examples.MessageBus.FSW
                 content = sr.ReadToEnd();
             }
             return content;
-        }
+        }*/
 
 
         public IEnumerable<IAttachmentInformation> Attachments
@@ -40,14 +42,16 @@ namespace SourceCode.Examples.MessageBus.FSW
         public T GetExtendedInformation<T>(Func<T> constructor) where T : MessageExtendedInformation
         {
             T extender = constructor();
+
+
+            // We tried getting the file owner, but that's "buildin\administrator", which is not resolvable by our k2 security provider.
+            // So, for now we hardcoded this.
             AlternativeCollection from = new AlternativeCollection();
             from.Add("Fqn", "K2:DENALLIX\\Administrator");
-            from.IsBlindCarbonCopy = false;
-            from.IsCarbonCopy = false;
+
 
             AlternativeCollection[] to = new AlternativeCollection[1];
             AlternativeCollection t = new AlternativeCollection();
-            //t.Add("Email", "k2service@denallix.com");
             t.Add("Fqn", "K2:DENALLIX\\Administrator");
             t.IsCarbonCopy = false;
             t.IsBlindCarbonCopy = false;
@@ -59,28 +63,32 @@ namespace SourceCode.Examples.MessageBus.FSW
 
         public bool HasHtml
         {
-            get { 
+            get
+            {
                 return false;
             }
         }
 
         public bool IsReply
         {
-            get { 
+            get
+            {
                 return true;
             }
         }
 
         public string Title
         {
-            get {
+            get
+            {
                 return _fileName;
             }
         }
 
         public IEnumerable<IViewInformation> Views
         {
-            get {
+            get
+            {
                 List<IViewInformation> vs = new List<IViewInformation>();
                 vs.Add(new FSWView(_filePath, this));
                 return vs;
