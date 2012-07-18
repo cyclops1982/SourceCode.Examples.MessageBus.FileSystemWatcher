@@ -1,6 +1,0 @@
-C:\Data\SourceCode.Examples.MessageBus.FileSystemWatcher\SourceCode.Examples.MessageBus.FileSystemWatcher\bin\Debug\SourceCode.Examples.MessageBus.FSW.dll
-C:\Data\SourceCode.Examples.MessageBus.FileSystemWatcher\SourceCode.Examples.MessageBus.FileSystemWatcher\bin\Debug\SourceCode.Examples.MessageBus.FSW.pdb
-C:\Data\SourceCode.Examples.MessageBus.FileSystemWatcher\SourceCode.Examples.MessageBus.FileSystemWatcher\bin\Debug\SourceCode.HostServerInterfaces.dll
-C:\Data\SourceCode.Examples.MessageBus.FileSystemWatcher\SourceCode.Examples.MessageBus.FileSystemWatcher\obj\Debug\ResolveAssemblyReference.cache
-C:\Data\SourceCode.Examples.MessageBus.FileSystemWatcher\SourceCode.Examples.MessageBus.FileSystemWatcher\obj\Debug\SourceCode.Examples.MessageBus.FSW.dll
-C:\Data\SourceCode.Examples.MessageBus.FileSystemWatcher\SourceCode.Examples.MessageBus.FileSystemWatcher\obj\Debug\SourceCode.Examples.MessageBus.FSW.pdb
