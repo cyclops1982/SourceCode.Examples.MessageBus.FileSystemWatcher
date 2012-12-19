@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\Program Files %28x86%29\K2 blackpearl\Host Server\Bin\Extensions\SmartActions\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -59,8 +59,7 @@
   <ItemGroup>
     <Compile Include="FSWMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FSWMessageDestination.cs" />
-    <Compile Include="FSWMessageOrigin.cs" />
+    <Compile Include="FSWMessageHandler.cs" />
     <Compile Include="FSWView.cs" />
   </ItemGroup>
   <ItemGroup>

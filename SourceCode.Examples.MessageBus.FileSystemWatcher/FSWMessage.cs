@@ -13,25 +13,15 @@ namespace SourceCode.Examples.MessageBus.FSW
     {
         private string _fileName;
         private string _filePath;
-
-
+        private IViewInformation[] _views;
 
         public FSWMessage(FileSystemEventArgs fileEvent)
         {
             _fileName = fileEvent.Name;
             _filePath = fileEvent.FullPath;
+            _views = new IViewInformation[1];
+            _views[0] = new FSWView(_filePath, this);
         }
-        /*
-        private string ReadFileContent(string filePath)
-        {
-            String content;
-            using (StreamReader sr = new StreamReader(filePath))
-            {
-                content = sr.ReadToEnd();
-            }
-            return content;
-        }*/
-
 
         public IEnumerable<IAttachmentInformation> Attachments
         {
@@ -89,9 +79,7 @@ namespace SourceCode.Examples.MessageBus.FSW
         {
             get
             {
-                List<IViewInformation> vs = new List<IViewInformation>();
-                vs.Add(new FSWView(_filePath, this));
-                return vs;
+                return _views;
             }
         }
 
